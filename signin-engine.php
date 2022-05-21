@@ -15,8 +15,11 @@ if(isset($_POST['login'])){
     $result = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($result)>0){
-        echo"dasdasd";
+        
+        header('location:status.php?username=' .$username);
+
     } else {
+        
         ?>
         <script>
             alert("Your account has not been registered. Please register an account first.");
