@@ -18,8 +18,8 @@ include 'conn/conn.php';
     <div class="nav-bar">
         <nav>
             <ul class="nav_links">
-                <li><a href="signIn.html"><?php echo $_SESSION['username']; ?></a></li>
-                <li><a href="clear-session.php">Log Out</a></li>
+                <li><a href="#"><?php echo $_SESSION['username'];?></a></li>
+                <li class="right-col"><a href="clear-session.php">Log in</a></li>
             </ul>
         </nav>
     </div>
