@@ -1,61 +1,163 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
 
-.nav_links {
+#navbar {
+    background: white;
+    color: rgb(13, 26, 38);
+    position: fixed;
+    top: 0;
+    height: 60px;
+    line-height: 60px;
+    width: 100vw;
+}
+
+.nav-wrapper {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+}
+
+.logo h1{
+    float: left;
+    font-size: 1.5em;
+    height: 50px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+}
+
+#navbar ul {
+    display: inline-block;
+    float: right;
     list-style: none;
-    position: absolute;
-    left: 75%;
-    display: flex;
-    padding-left: 0%;
-    margin: 8px 8px;
+    margin-top: -2px;
+    text-align: right;
+    transition: transform 0.5s ease-out;
+    -webkit-transition: transform 0.5s ease-out;
 }
 
-.nav_links li {
-    margin-top: 0%;
-    padding-top: 8px;
+#navbar li {
+    display: inline-block;
 }
 
-.nav_links li a {
-    transition: all 0.3s ease 0s;
-    padding: 0px 20px 0px 20px;
-    
-}
-
- .nav_links li a {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    color: #000;
-    text-decoration: none;
-}
-
-.nav_links li a:hover {
-    color: #71CFEB;
-}
-
-.nav-bar{
-    background-color: #343a40 ;
-}
-
-.right-col {
-    margin-top: 3%;
-    border-left: 3px solid #000;
-    height: 20px;
-    justify-content: center;
-}
-
-.content table{
+#navbar li a {
+    color: rgb(13, 26, 38);
+    display: block;
+    font-size: 0.9em;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 0 20px;
+    padding: 0 4px;
     position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+#navbar li a:hover {
+    color: rgb(28, 121, 184);
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+}
+
+#navbar li a:before,
+#navbar li a:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: -1px;
+    background: rgb(13, 26, 38);
+}
+
+#navbar li a:before {
+    left: 0;
+    transition: 0.5s;
+}
+
+
+#navbar li a:hover:before {
+    background: rgb(13, 26, 38);
+    width: 100%;
+    transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+}
+
+#navbar li a:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: 0s;
+}
+
+.table-header {
+    font-size: 1.3em;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.content table {
+    font-family: 'Poppins', sans-serif;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.3em;
     border-collapse: collapse;
     overflow: hidden;
     cursor: context-menu;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 50px;
+    width: 70%;
+    text-align: center;
+    font-size: 0.9em;
+
 }
+
+.content table tr td {
+    border-top: 0.5px solid rgb(145, 143, 143);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #f5f5dc;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.content table tr td a i {
+    padding: 5px;
+}
+
+.content table tr td a:visited,
+.content table tr td a:active,
+.content table tr td a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+.content table tr td a:hover{
+    color: crimson;
+}
+
+.login-form{
+    position:absolute;
+    top:-1%;
+    left:87%;
+    margin-left:-225px;
+    width:450px;
+    visibility:hidden;
+    opacity: 0;
+    background-color: 	#dcf5f5;
+  }
+  
+  .login-form:target{
+    position: fixed;
+    top:80%;
+    visibility: visible;
+    opacity: 1;
+    transition:all 1s ease;
+  }
