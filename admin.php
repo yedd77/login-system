@@ -34,11 +34,11 @@ $notempty2 = mysqli_num_rows($result);
         <div class="nav-wrapper">
             <!-- Navbar Logo -->
             <div class="logo">
-                <h1>Login System / Admin Page</h1>
+                <h1>Login System / Admin Page <i style="margin-left: 10px;" class="fa-solid fa-screwdriver-wrench"></i></h1> 
             </div>
             <ul id="menu">
                 <li><a href="#"><i class="fa fa-user-circle" style="margin-right: 10px;"></i><?php echo $_SESSION['username'];?></a></li>
-                <li><a href="clear-session.php">Log Out<i class="fa fa-sign-out" style="margin-left: 10px;"></i></a>
+                <li><a href="clear-session.php">LOG OUT<i class="fa fa-sign-out" style="margin-left: 10px;"></i></a>
                 </li>
             </ul>
         </div>
@@ -127,8 +127,18 @@ $notempty2 = mysqli_num_rows($result);
                 <td><?php echo $email2;?></td>
                 <td><?php echo $phone2;?></td>
                 <td><i class="fa-solid fa-xmark"></i></td>
-                <td><a href="delete-engine.php?user_id=<?php echo $userid?>" class="revoke"><i class="fa-solid fa-trash-can"></i>Delete</a></td>
-                <td class="revoke"><a href="#login-show?user_id=<?php echo $username2 ?>" role="button"><i class="fa-solid fa-check"></i>Verify</a></td>
+                <td><a href="delete-engine.php?user_id=<?php echo $userid2?>" class="revoke"><i class="fa-solid fa-trash-can"></i>Delete</a></td>
+                <td>
+                    <form action="verify-engine.php?user_id=<?php echo $userid2?>" method="POST">
+                        <select name="roleOpt">
+                            <option value="0">Select User Role</option>
+                            <option value="1">lecturer</option>
+                            <option value="2">student</options>
+                            <option value="3">admin</option>
+                        </select>
+                        <input name="verify" class="form-btn" type="submit" value="Verify User">
+                    </form>
+                </td>
             </tr>
             <?php
             $num++;
@@ -151,19 +161,6 @@ $notempty2 = mysqli_num_rows($result);
             <?php
             }?>
         </table>
-    </div>
-
-    <div class="card login-form" id="login-show?user_id">
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <h1>Verify for <?php?></h1>
-                    <label for="name">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
     </div>
 </body>
 

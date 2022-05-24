@@ -7,6 +7,7 @@ if(isset($_POST['register'])){
     //retreive data from register.html
     $username = $_REQUEST['username'];
     $email = $_REQUEST['email'];
+    $phone = $_REQUEST['phone'];
     $pass = $_REQUEST['password'];
     $cpass = $_REQUEST['cpassword'];
 
@@ -14,8 +15,8 @@ if(isset($_POST['register'])){
 
         //insert data into db
         $sql = "INSERT INTO account_detail
-        (`username` , `user_email` , `password`)
-        VALUES ('$username' , '$email' , '$pass')";
+        (`username` , `user_email` `phone_num` , `password`)
+        VALUES ('$username' , '$email' , '$phone', '$pass')";
 
         if($conn->query($sql) === TRUE){
             ?>
