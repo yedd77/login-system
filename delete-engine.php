@@ -8,8 +8,10 @@ $userid = $_REQUEST['user_id'];
 //perform deletion
 $sql = "DELETE FROM account_detail WHERE user_id ='$userid'";
 
+//update V2.3
 if($conn->query($sql) === TRUE){
     ?>
+
         <script>
             alert("Account have been deleted");
         </script>
