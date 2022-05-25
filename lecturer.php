@@ -45,8 +45,9 @@ include 'conn/conn.php';
         <label class="label" for="email">Phone Number</label>
         <input type="text" value="<?php echo $_SESSION['phone']?>" name="email" readonly>
 
-        <input class="btn" type="submit" value="Delete Account">
-        <input class="btn" type ="submit" value="Update Password">
+        <a href="delete-engine.php?user_id=<?php echo $_SESSION['user_id']; ?>">
+            <input class="btn" type="button"  value="Delete Account">
+        </a>
     </div>
 </body>
 

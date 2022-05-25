@@ -9,15 +9,28 @@ if(isset($_POST['login'])){
 
     //perform query
     $query = "SELECT * FROM account_detail 
-    WHERE username ='$username'
-    AND password = '$password'";
+    WHERE username ='$username'";
 
     $result = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($result)>0){
         
-        header('location:status.php?username=' .$username);
+        //fetch password from db
+        $row = mysqli_fetch_assoc($result);
+        $dbpass = $row['password'];
 
+        //Verifies that a password matches a hash
+        //ref: https://www.php.net/manual/en/function.password-hash.php
+        if(password_verify($password , $dbpass)){
+            header('location:status.php?username=' .$username);
+        } else {
+            ?>
+            <script>
+                alert("Invalid credential, please try again");
+                window.location = "index.html";
+            </script>
+            <?php
+        }
     } else {
         
         ?>

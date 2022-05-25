@@ -14,6 +14,7 @@ $row = mysqli_fetch_assoc($result);
 $role = $row['role'];
 
 //set data into session
+$_SESSION['user_id'] = $row['user_id'];
 $_SESSION['username'] = $row['username'];
 $_SESSION['email'] = $row['user_email'];
 $_SESSION['phone'] = $row['phone_num'];

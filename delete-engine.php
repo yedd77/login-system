@@ -17,9 +17,9 @@ if($conn->query($sql) === TRUE){
     if($_SESSION['role'] == "admin"){
         ?><script>window.location='admin.php'</script><?php
     } else if ($_SESSION['role'] == "student"){
-        ?><script>window.location='student.php'</script><?php
+        ?><script>window.location='index.html'</script><?php
     }  else if ($_SESSION['role'] == "lecturer"){
-        ?><script>window.location='lecturer.php'</script><?php
+        ?><script>window.location='index.html'</script><?php
     }  else {
         ?>
             <script>

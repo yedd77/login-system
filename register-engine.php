@@ -13,10 +13,14 @@ if(isset($_POST['register'])){
 
     if($pass == $cpass){
 
+        //using bycrypt algo to store password into db
+        //ref: https://www.php.net/manual/en/function.password-hash.php
+        $hashed = password_hash($pass , PASSWORD_BCRYPT);
+
         //insert data into db
         $sql = "INSERT INTO account_detail
-        (`username` , `user_email` `phone_num` , `password`)
-        VALUES ('$username' , '$email' , '$phone', '$pass')";
+        (`username` , `user_email`, `phone_num` , `password`)
+        VALUES ('$username' , '$email' , '$phone', '$hashed')";
 
         if($conn->query($sql) === TRUE){
             ?>
@@ -35,7 +39,5 @@ if(isset($_POST['register'])){
         </script>
         <?php
     }
-    
 }
-
 ?>
