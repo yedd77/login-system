@@ -13,7 +13,7 @@ if(isset($_POST['register'])){
 
     if($pass == $cpass){
 
-        //using bycrypt algo to store password into db
+        //using CRYPT_BLOWFISH algorithm to create the hash
         //ref: https://www.php.net/manual/en/function.password-hash.php
         $hashed = password_hash($pass , PASSWORD_BCRYPT);
 
@@ -24,6 +24,7 @@ if(isset($_POST['register'])){
 
         if($conn->query($sql) === TRUE){
             ?>
+            <!--alertbox popup for user when done register-->
             <script>
                 alert("Your registration have been accepted");
                 window.location = "index.html";
@@ -33,6 +34,7 @@ if(isset($_POST['register'])){
 
     } else {
         ?>
+        <!--alertbox popup when user insert wrong password-->
         <script>
             alert("Password didn't match, please try again");
             window.location = "register.html";
