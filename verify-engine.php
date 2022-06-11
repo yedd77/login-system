@@ -38,7 +38,7 @@ if(isset($_REQUEST['verify'])){
     }
 
     //if data inserted success
-    if ($conn->query($sql) === TRUE) { 
+    if ($conn->query($sql) === TRUE)  {
     ?>
 
     <script>
